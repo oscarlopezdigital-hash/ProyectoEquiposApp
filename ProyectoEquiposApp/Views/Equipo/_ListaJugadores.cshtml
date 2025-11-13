@@ -1,0 +1,37 @@
+﻿@model ProyectoEquiposApp.Models.Equipo
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_ListaJugadores</title>
+</head>
+<body>
+    <div class="lista-jugadores">
+        <h3>Lista de Jugadores del equipo @Model.NombreEquipo</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Posicion</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var jugador in Model.Jugadores)
+            {
+                <tr>
+                    <td>@jugador.Nombre</td>
+                    <td>@jugador.Posicion</td>
+                    <td>@jugador.Edad</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

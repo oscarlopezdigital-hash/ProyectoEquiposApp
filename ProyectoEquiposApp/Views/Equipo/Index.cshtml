@@ -1,0 +1,49 @@
+﻿@model List<ProyectoEquiposApp.Models.Equipo>
+@{
+    ViewBag.Title = "Índex de la Liga";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>ÍNDEX DE LA LIGA</h2>
+    <hr />
+
+    @foreach (var equipo in Model)
+    {
+        if (equipo != null)
+        {
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="h5 mb-0">Lista de Jugadores del equipo **@equipo.NombreEquipo**</h3>
+                </div>
+
+                <div class="card-body p-0">
+                    <table class="table table-striped table-bordered mb-0">
+
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Posición</th>
+                                <th>Edad</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @if (equipo.Jugadores != null)
+                            {
+                                foreach (var jugador in equipo.Jugadores)
+                                {
+                                    <tr>
+                                        <td>@jugador.Nombre</td>
+                                        <td>@jugador.Posicion</td>
+                                        <td>@jugador.Edad</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    }
+</div>
